@@ -44,6 +44,7 @@ matrix:
   allow_failures:
 
 before_install:
+  - if [ -n "$GH_TOKEN" ]; then composer config github-oauth.github.com ${GH_TOKEN}; fi;
   - phpenv config-rm xdebug.ini || true
   - composer global require --no-progress --no-scripts --no-plugins symfony/flex
 
